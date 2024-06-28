@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eviniz üçün tikinti material və avadanlıqları burada</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
 <header>
     <nav class="navbar">
         <div class="navbar-brand">
-            <a href="#"><img src="img/eviniztikilsin-logo.png" width="150" height="150" /></a>
+            <a href="#"><img src="{{ url_for('static', filename='img/logo-eviniztikilsin.png') }}" width="150" height="150" /></a>
         </div>
         <div class="navbar-menu">
             <ul class="navbar-links">
@@ -47,14 +47,41 @@
 </header>
 
 <section class="body">
+    <div class="filter-area">
+        <h1>Filter Products</h1>
+        <form id="filterForm">
+            <label for="category">Kateqoriya:</label>
+            <input type="text" id="category" name="category">
+            <br>
+            <label for="min_price">(₼)Min Qiymət:</label>
+            <input type="number" id="min_price" name="min_price" step="0.01">
+            <br>
+            <label for="max_price">(₼)Max Qiymət:</label>
+            <input type="number" id="max_price" name="max_price" step="0.01">
+            <br>
+            <label for="rating">Min Rating:</label>
+            <input type="number" id="rating" name="rating" step="0.1" min="0" max="5">
+            <br>
+            <button type="submit">Filter</button>
+        </form>
+        <h2>Axtarışın Nəticələri</h2>
+    </div>
+    <div class="slider">
+        <div id="results" class="slides"></div>
+        <div class="controls">
+            <span class="prev">&#10094;</span>
+            <span class="next">&#10095;</span>
+        </div>
+    </div>
     <div class="section01-title">
-       <h2>Tikinti üçün materiallar</h2>
+       <h3>Tikinti üçün materiallar</h3>
 
     <div class="slider">
         <div class="slides">
+
             <div class="slide">
                 <div class="image">
-                    <img src="img/image1.jpg" alt="Image 1">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari01.png') }}" alt="Bag Desti">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -69,11 +96,19 @@
                         <p>Çatdırılma: </p>
                         <p>Pulsuz</p>
                     </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact"><i class="fas fa-phone">+994127777700</i><i class="fab fa-whatsapp">+994777777700</i></span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
                 </div>
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image2.jpg" alt="Image 2">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari14.png') }}" alt="Bağ ləvazimatları">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -88,11 +123,19 @@
                         <p>Çatdırılma: </p>
                         <p>Pulsuz</p>
                     </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikitiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
                 </div>
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image3.jpg" alt="Image 3">
+                    <img src="{{ url_for('static', filename='img/dreldesti.jpg') }}" alt="Image 3">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -111,7 +154,7 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image4.jpg" alt="Image 4">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari01.png') }}" alt="Image 4">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -130,7 +173,223 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image5.jpg" alt="Image 5">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari15.png') }}" alt="Image 5">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikitiSatisMagaza</span>
+                        <span class="seller-contact"><i class="fab fa-whatsapp fa-lg" style="color: #63E6BE;">+994777777700</i></span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari03.png') }}" alt="Image 6">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari05.png') }}" alt="Image 7">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari01.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari01.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari04.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari05.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari06.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari07.png') }}" alt="Image 8">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -149,7 +408,7 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image6.jpg" alt="Image 6">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari08.png') }}" alt="Image 8">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -168,7 +427,7 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image7.jpg" alt="Image 7">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari09.png') }}" alt="Image 8">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -187,7 +446,7 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image8.jpg" alt="Image 8">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiemateriallari10.png') }}" alt="Image 8">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -204,7 +463,160 @@
                     </span>
                 </div>
             </div>
-            <!-- Add more slides as needed -->
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari11.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari12.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintimateriallari13.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari01.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari01.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari01.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari01.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_construction/tikintiavadanliqlarivemateriallari01.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+
+            <!-- More slides -->
         </div>
         <div class="controls">
             <span class="prev">&#10094;</span>
@@ -213,19 +625,19 @@
     </div>
 
    </div>
-
-   <div class="section02-title">
-       <h2>Bağ üçün materiallar</h2>
+      <div class="section02-title">
+       <h3>Bağ üçün ləvazimatlar</h3>
 
     <div class="slider">
         <div class="slides">
+
             <div class="slide">
                 <div class="image">
-                    <img src="img/image1.jpg" alt="Image 1">
+                    <img src="{{ url_for('static', filename='img/bagdesti02.jpg') }}" alt="Bag Desti">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
-                        <p>Screwdriver</p>
+                        <p>Trimmer</p>
                         <p>Set of 7 pieces</p>
                     </span>
                     <span class="price-img">
@@ -240,11 +652,11 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image2.jpg" alt="Image 2">
+                    <img src="{{ url_for('static', filename='img/baglevazimatlaridest01.jpg') }}" alt="Bağ ləvazimatları">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
-                        <p>Kəlbətin</p>
+                        <p>Bel</p>
                         <p>12 Ölçülü tək ədəd</p>
                     </span>
                     <span class="price-img">
@@ -259,7 +671,34 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image3.jpg" alt="Image 3">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari03.png') }}" alt="Image 3">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otbicen</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari04.png') }}" alt="Image 4">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -278,7 +717,7 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image4.jpg" alt="Image 4">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari05.png') }}" alt="Image 5">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -297,7 +736,34 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image5.jpg" alt="Image 5">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari09.png') }}" alt="Image 6">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                    <span class="seller-info">
+                        <span class="seller-name">TikintiSatisMagaza</span>
+                        <span class="seller-contact">+994777777700</span>
+                        <span class="seller-address">
+                            <p class="seller-address">Unvan: </p>
+                            <p class="seller-location">Pirsagi qes.</p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari06.png') }}" alt="Image 7">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -316,7 +782,7 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image6.jpg" alt="Image 6">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari07.png') }}" alt="Image 8">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -335,7 +801,7 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image7.jpg" alt="Image 7">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari08.png') }}" alt="Image 8">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -354,7 +820,7 @@
             </div>
             <div class="slide">
                 <div class="image">
-                    <img src="img/image8.jpg" alt="Image 8">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari08.png') }}" alt="Image 8">
                 </div>
                 <div class="text-img">
                     <span class="title-img">
@@ -371,7 +837,27 @@
                     </span>
                 </div>
             </div>
-            <!-- Add more slides as needed -->
+            <div class="slide">
+                <div class="image">
+                    <img src="{{ url_for('static', filename='img/img_garden/baglevazimatlari10.png') }}" alt="Image 8">
+                </div>
+                <div class="text-img">
+                    <span class="title-img">
+                        <p>Otvertka dəsti</p>
+                        <p>3 Ölçüdə 5 ədəd</p>
+                    </span>
+                    <span class="price-img">
+                        <span class="amount-img">7.99</span>
+                        <span class="currency-img">AZN</span>
+                    </span>
+                    <span class="delivery-img">
+                        <p>Çatdırılma: </p>
+                        <p>Var</p>
+                    </span>
+                </div>
+            </div>
+
+            <!-- More slides -->
         </div>
         <div class="controls">
             <span class="prev">&#10094;</span>
@@ -380,176 +866,8 @@
     </div>
 
    </div>
-
-       <div class="section03-title">
-       <h2>Ən yeni materiallar</h2>
-
-    <div class="slider">
-        <div class="slides">
-            <div class="slide">
-                <div class="image">
-                    <img src="img/image1.jpg" alt="Image 1">
-                </div>
-                <div class="text-img">
-                    <span class="title-img">
-                        <p>Screwdriver</p>
-                        <p>Set of 7 pieces</p>
-                    </span>
-                    <span class="price-img">
-                        <span class="amount-img">77.99</span>
-                        <span class="currency-img">AZN</span>
-                    </span>
-                    <span class="delivery-img">
-                        <p>Çatdırılma: </p>
-                        <p>Pulsuz</p>
-                    </span>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="image">
-                    <img src="img/image2.jpg" alt="Image 2">
-                </div>
-                <div class="text-img">
-                    <span class="title-img">
-                        <p>Kəlbətin</p>
-                        <p>12 Ölçülü tək ədəd</p>
-                    </span>
-                    <span class="price-img">
-                        <span class="amount-img">17.99</span>
-                        <span class="currency-img">AZN</span>
-                    </span>
-                    <span class="delivery-img">
-                        <p>Çatdırılma: </p>
-                        <p>Pulsuz</p>
-                    </span>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="image">
-                    <img src="img/image3.jpg" alt="Image 3">
-                </div>
-                <div class="text-img">
-                    <span class="title-img">
-                        <p>Otvertka dəsti</p>
-                        <p>3 Ölçüdə 5 ədəd</p>
-                    </span>
-                    <span class="price-img">
-                        <span class="amount-img">7.99</span>
-                        <span class="currency-img">AZN</span>
-                    </span>
-                    <span class="delivery-img">
-                        <p>Çatdırılma: </p>
-                        <p>Var</p>
-                    </span>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="image">
-                    <img src="img/image4.jpg" alt="Image 4">
-                </div>
-                <div class="text-img">
-                    <span class="title-img">
-                        <p>Otvertka dəsti</p>
-                        <p>3 Ölçüdə 5 ədəd</p>
-                    </span>
-                    <span class="price-img">
-                        <span class="amount-img">7.99</span>
-                        <span class="currency-img">AZN</span>
-                    </span>
-                    <span class="delivery-img">
-                        <p>Çatdırılma: </p>
-                        <p>Var</p>
-                    </span>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="image">
-                    <img src="img/image5.jpg" alt="Image 5">
-                </div>
-                <div class="text-img">
-                    <span class="title-img">
-                        <p>Otvertka dəsti</p>
-                        <p>3 Ölçüdə 5 ədəd</p>
-                    </span>
-                    <span class="price-img">
-                        <span class="amount-img">7.99</span>
-                        <span class="currency-img">AZN</span>
-                    </span>
-                    <span class="delivery-img">
-                        <p>Çatdırılma: </p>
-                        <p>Var</p>
-                    </span>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="image">
-                    <img src="img/image6.jpg" alt="Image 6">
-                </div>
-                <div class="text-img">
-                    <span class="title-img">
-                        <p>Otvertka dəsti</p>
-                        <p>3 Ölçüdə 5 ədəd</p>
-                    </span>
-                    <span class="price-img">
-                        <span class="amount-img">7.99</span>
-                        <span class="currency-img">AZN</span>
-                    </span>
-                    <span class="delivery-img">
-                        <p>Çatdırılma: </p>
-                        <p>Var</p>
-                    </span>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="image">
-                    <img src="img/image7.jpg" alt="Image 7">
-                </div>
-                <div class="text-img">
-                    <span class="title-img">
-                        <p>Otvertka dəsti</p>
-                        <p>3 Ölçüdə 5 ədəd</p>
-                    </span>
-                    <span class="price-img">
-                        <span class="amount-img">7.99</span>
-                        <span class="currency-img">AZN</span>
-                    </span>
-                    <span class="delivery-img">
-                        <p>Çatdırılma: </p>
-                        <p>Var</p>
-                    </span>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="image">
-                    <img src="img/image8.jpg" alt="Image 8">
-                </div>
-                <div class="text-img">
-                    <span class="title-img">
-                        <p>Otvertka dəsti</p>
-                        <p>3 Ölçüdə 5 ədəd</p>
-                    </span>
-                    <span class="price-img">
-                        <span class="amount-img">7.99</span>
-                        <span class="currency-img">AZN</span>
-                    </span>
-                    <span class="delivery-img">
-                        <p>Çatdırılma: </p>
-                        <p>Var</p>
-                    </span>
-                </div>
-            </div>
-            <!-- Add more slides as needed -->
-        </div>
-        <div class="controls">
-            <span class="prev">&#10094;</span>
-            <span class="next">&#10095;</span>
-        </div>
-    </div>
-
-   </div>
+   <!-- More sections -->
 </section>
-    <!-- Other content of the webpage -->
-
 <footer class="footer">
         <div class="footer-container">
             <div class="footer-column">
@@ -568,7 +886,7 @@
             <div class="footer-column">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <img src="img/logo-eviniztikilsin.png" width="150" height="150" />
+                    <img src="{{ url_for('static', filename='img/logo-eviniztikilsin.png') }}" width="150" height="150" />
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -590,7 +908,8 @@
 </footer>
 
     <!-- Include FontAwesome for icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
